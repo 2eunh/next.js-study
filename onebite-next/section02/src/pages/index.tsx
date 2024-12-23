@@ -10,7 +10,7 @@ import fetchRandomBooks from "@/lib/fetch-random-books";
 //ssg
 export const getStaticProps = async() => {
 
-  console.log("indes page");
+  console.log("index page");
   
   const [allBooks, recoBooks] = await Promise.all([
     fetchBooks(),
@@ -21,7 +21,9 @@ export const getStaticProps = async() => {
     props:{
       allBooks,
       recoBooks
-    }
+    },
+    //3초 주기로 재검증
+    // revalidate : 3,
   }
 };
 
